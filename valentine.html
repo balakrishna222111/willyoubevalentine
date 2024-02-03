@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #ffdbdb;
+        }
+
+        header {
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff4d4d;
+            color: #fff;
+        }
+
+        .response-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+.cute-bear-gif,
+        .celebrate-gif {
+            display: block;
+            margin: 0 auto;
+            max-width: 80%;
+            width: 200px;
+            height: auto;
+            margin-top: 10px;
+        }
+
+.celebrate-gif 
+         {
+            display: none;
+        }
+.heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            clip-path: polygon(
+                50% 0%, 60% 10%, 65% 20%, 70% 30%, 75% 40%,
+                80% 50%, 75% 60%, 70% 70%, 65% 80%, 60% 90%,
+                50% 100%, 40% 90%, 35% 80%, 30% 70%, 25% 60%,
+                20% 50%, 25% 40%, 30% 30%, 35% 20%, 40% 10%
+            );
+            animation: heart-fall 5s linear infinite;
+        }
+
+        @keyframes heart-fall {  
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Will You Be My Valentine?</h1>
+    </header>
+<section>
+    <div id="hearts-container"></div>
+ <img class="cute-bear-gif" src="https://gifdb.com/images/high/bear-love-bouncing-mocha-with-flowers-n4m0fyne6h4e6y2x.webp">
+<img class="celebrate-gif" src="https://www.icegif.com/wp-content/uploads/bear-kissing-icegif-1.gif" alt="Celebrate GIF">
+
+</section>
+    <div class="response-buttons">
+        <button onclick="response('Yes')">Yes</button>
+        <button onclick="response('No')">No</button>
+    </div>
+    <script>
+        function response(answer) {
+            if (answer === 'Yes') {
+                document.querySelector('.celebrate-gif').style.display = 'block';
+                createHearts();
+            } else if (answer === 'No') {
+                alert('Oh no! 😢 Thank you for your honesty. Wishing you all the best.');
+            }
+        }
+
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            for (let i = 0; i < 10; i++) {
+                createHeart();
+            }
+        }
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    
+    // Set a fixed position for each heart vertically (top)
+    const startPosition = Math.random() * window.innerWidth;
+    heart.style.left = startPosition + 'px';
+    heart.style.top = 0;
+
+    document.getElementById('hearts-container').appendChild(heart);
+
+    // Remove the heart after animation completes
+    setTimeout(() => {
+        heart.remove();
+    }, 1000000);
+}
+    </script>
+</body>
+</html>
