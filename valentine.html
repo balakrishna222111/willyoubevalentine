@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,18 +61,23 @@
             display: none;
         }
 .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            clip-path: polygon(
-                50% 0%, 60% 10%, 65% 20%, 70% 30%, 75% 40%,
-                80% 50%, 75% 60%, 70% 70%, 65% 80%, 60% 90%,
-                50% 100%, 40% 90%, 35% 80%, 30% 70%, 25% 60%,
-                20% 50%, 25% 40%, 30% 30%, 35% 20%, 40% 10%
-            );
-            animation: heart-fall 5s linear infinite;
-        }
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+    animation: heart-fall 5s linear infinite;
+}
+
+.heart::before {
+    content: '♥';
+    color: red;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
 
         @keyframes heart-fall {  
             0% {
@@ -132,6 +137,8 @@ function createHeart() {
         heart.remove();
     }, 1000000);
 }
+
+
     </script>
 </body>
 </html>
